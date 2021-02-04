@@ -1,0 +1,244 @@
+@charset 'utf-8';
+
+body {
+    font-size: 20px;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+#container {
+    color: rgba(255,255,255,0.85);
+    margin: 20px auto;
+    background-color: rgb(10 60 10);
+    height: 600px;
+    width: 700px;
+    border: 5px solid #864a2b;
+    border-bottom: 20px solid #864a2b;
+    border-radius: 5px;
+    box-shadow: 0px 15px 35px 0px;
+    position: relative;
+}
+
+#eracer {
+    background-color: #E0861A;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+    border-radius: 5px;
+}
+#belt {
+    background-color: #111;
+    width: 20px;
+    height: 50px;
+    position: absolute;
+    left: 40px;
+}
+.chalk {
+    width: 50px;
+    height: 9px;
+}
+#redchalk {
+    background-color: rgba(247,171,173,0.85);
+    position: absolute;
+    right: 170px;
+    bottom: 0;
+}
+#whitechalk {
+    background-color: rgba(255,255,255,0.85);
+    position: absolute;
+    right: 130px;
+    bottom: 5px;
+    transform: rotate(15deg);
+}
+
+#parenthesis {
+    letter-spacing: 8px;
+    font-size: 1.7rem;
+    position: absolute;
+    right: 3px;
+    bottom: 187px;
+}
+
+h1 {
+    position: absolute;
+    left: 245px;
+    top: 150px;
+}
+
+#start {
+    font-size: 1.5em;
+    font-weight: bolder;
+    word-break: break-all;
+    width: 150px;
+    padding: 20px 0;
+    border: 2px solid lightgrey;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 300px;
+    color: lightgrey;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+#start:hover {
+    border: 2px solid rgba(126,203,220,0.9);
+    color: rgba(126,203,220,0.9);
+}
+
+#hinichi {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    position: absolute;
+    bottom: 120px;
+    right: 20px;
+    font-size: 1.5rem;
+}
+#month,
+#date {
+    text-combine-upright: all;
+}
+#week {
+    margin-top: 10px;
+}
+
+
+#question {
+    width: 500px;
+    height: 200px;
+    border-radius: 5px;
+    position: absolute;
+    left: 100px;
+    top: 30px;
+}
+
+#question p {
+    margin: 0;
+    padding: 15px;
+    font-size: 1.125em;
+}
+
+
+#qNumber {
+    font-size: 2rem;
+    margin-right: 30px;
+}
+
+#word {
+    position: absolute;
+    text-align: center;
+    top: 120px;
+    width: 100%;
+    font-size: 1.75rem;
+    letter-spacing: 2px;
+}
+
+#choices {
+    position: absolute;
+    right: 85px;
+    top: 300px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    grid-row-gap: 20px;
+}
+
+
+.choice {
+    width: 225px;
+    height: 50px;
+    text-align: center;
+    border: 2px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.correctChoice {
+    background-color: green;
+}
+
+.choice:hover {
+    border: 2px solid rgba(255,255,255,0.85);
+    font-weight: bold;
+}
+
+#timer {
+    position: absolute;
+    height: 20px;
+    top: 270px;
+    left: 75px;
+    text-align: center;
+}
+
+#counter {
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;;
+    top: -40px;
+    
+}
+
+#timebarBase {
+    width: 500px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.25);
+    margin-left: 25px;
+}
+
+#timebar {
+    height: 10px;
+    border-radius: 10px;
+    margin-top: -10px;
+    margin-left: 25px;
+}
+
+#progressBar {
+    width: 600px;
+    position: absolute;
+    bottom: 75px;
+    right: 65px;
+    text-align: right;
+}
+
+.prog {
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(255,255,255,0.85);
+    display: inline-block;
+    margin: 0 1px;
+}
+
+
+#scoreContainer {
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, .6);
+    height: 600px;
+    width: 700px;
+    border-radius: 5px;
+    position: relative;
+    display: none;
+    top: -20px;
+}
+
+#scoreContainer img {
+    position: absolute;
+    top: 100px;
+    left: 325px;
+}
+
+#scoreContainer p {
+    position: absolute;
+    display: block;
+    width: 59px;
+    height: 59px;
+    top: 225px;
+    left: 320px;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="head">
+        <h1><img src="images/snake.png">ヘビゲーム<img src="images/snake.png"></h1>
+        <nav class="nav" id="menu">
+            <ul>
+                <li><a href="../index.html" class="list">HOME</a></li>
+                <li><a href="../SnakeGame/snake.html" class="list">Snake Game</a></li>
+                <li><a href="../Quiz/quiz.html" class="list">Quiz</a></li>
+            </ul>
+        </nav>
+        <div id="target">
+            <div class="target_inner">
+                <span class="target_inner_line target_inner_1" id="line1"></span>
+                <span class="target_inner_line target_inner_2" id="line2"></span>
+                <span class="target_inner_line target_inner_3" id="line3"></span>
+            </div>
+        </div>
+    </header>
+    <section>
+        <canvas id="canvas" width="608" height="640"></canvas>
+    </section>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #fafafa;
+            margin: 0;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        section {
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        
+
+        header {
+            background-color: #7fff00;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .head {
+            width: 100%;
+            position: fixed;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin: 0;
+        }
+
+        .nav {
+            position: absolute;
+            height: 100vh;
+            width: 100%;
+            right: -100%;
+            background: rgba(99, 99, 99, .95);
+            transition: 1s;
+            top: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            line-height: 150px;
+            list-style-type: none;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            transition: .2s;
+        }
+        
+        a:hover {
+            color: #7fff00;
+        }
+
+        #target {
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            display: block;
+            -webkit-transition: 1.5s;
+            transition: 1.5s;
+        }
+
+        .target_inner {
+            width: 40px;
+            height: 30px;
+            position: relative;
+        }
+
+        .target_inner_line {
+            display: block;
+            width: 40px;
+            height: 5px;
+            background: #636363;
+            -webkit-transition: 1.5s;
+            transition: 1.5s;
+            border-radius: 50px;
+            position: absolute;
+        }
+
+        .target_inner_1 {
+            top: 0;
+        }
+
+        .target_inner_2 {
+            top: 13px;
+        }
+
+        .target_inner_3 {
+            top: 26px;
+        }
+
+        .fadein {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+
+        .linea,
+        .lineb,
+        .linec {
+            background: #ffffff;
+        }
+
+        .linea {
+            -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+            top: 13px;
+        }
+
+        .lineb {
+            opacity: 0;
+        }
+
+        .linec {
+            -webkit-transform: rotate(-225deg);
+            transform: rotate(-225deg);
+            top: 13px;
+        }
+        
+        main {
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 100vh;
+        }
+        
+    </style>
+
+    <script src="main.js"></script>
+    <script>
+        function hamburger() {
+            document.getElementById('line1').classList.toggle('linea');
+            document.getElementById('line2').classList.toggle('lineb');
+            document.getElementById('line3').classList.toggle('linec');
+            document.getElementById('target').classList.toggle('slidex');
+            document.getElementById('menu').classList.toggle('fadein');
+        }
+        document.getElementById('target').addEventListener('click', function() {
+            hamburger();
+        });
+        let list = document.getElementsByClassName('list');
+
+        for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click', function() {
+                hamburger();
+            });
+        }
+    </script>
+</body></html>

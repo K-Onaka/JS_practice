@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Assignment</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="sanitize.css">
+</head>
+
+<body>
+    <header class="head">
+        <h1>JavaScript 課題作品</h1>
+        <nav class="nav" id="menu">
+            <ul>
+                <li><a href="index.html" class="list">HOME</a></li>
+                <li><a href="SnakeGame/snake.html" class="list">Snake Game</a></li>
+                <li><a href="Quiz/quiz.html" class="list">Quiz</a></li>
+            </ul>
+        </nav>
+        <div id="target">
+            <div class="target_inner">
+                <span class="target_inner_line target_inner_1" id="line1"></span>
+                <span class="target_inner_line target_inner_2" id="line2"></span>
+                <span class="target_inner_line target_inner_3" id="line3"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div id="container">
+            <div id="snake">
+                <a href="SnakeGame/snake.html"><img src="images/snake1.png" alt="snake"></a>
+            </div>
+
+            <div id="quiz">
+                <a href="Quiz/quiz.html"><img src="images/quiz1.png" alt=""></a>
+            </div>
+            
+            
+        </div>
+
+        <div id="clock">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
+
+    </main>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #fafafa;
+            font-family: 'Quantico', sans-serif;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #snake,
+        #quiz {
+            border: 2px solid #555;
+            border-radius: 30px;
+            width: 250px;
+            height: 250px;
+            text-align: center;
+            margin-top: 100px;
+            align-items: center;
+            padding: 50px;
+            transition: .2s;
+        }
+
+        #snake:hover {
+            background-color: #7fff00;
+            transform: scale(1.05, 1.05) translate3d(0, 0, 0);
+            border: 3px solid #000;
+        }
+
+        #quiz:hover {
+            background-color: orange;
+            transform: scale(1.05, 1.05) translate3d(0, 0, 0);
+            border: 3px solid #000;
+        }
+
+        #clock {
+            height: 200px;
+            width: 500px;
+            background-color: #111;
+            border-radius: 30px;
+            color: deepskyblue;
+            margin: 50px auto;
+            padding: 10px;
+        }
+        #time {
+            font-size: 4.5rem;
+            
+        }
+        #date {
+            font-size: 2rem;
+        }
+
+        header {
+            background-color: #111;
+            color: #fff;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .head {
+            width: 100%;
+            position: fixed;
+            height: 50px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .nav {
+            position: absolute;
+            height: 100vh;
+            width: 100%;
+            right: -100%;
+            background: rgba(99, 99, 99, .95);
+            transition: 1s;
+            top: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+
+        li {
+            line-height: 150px;
+            list-style-type: none;
+            font-size: 2em;
+            text-align: center;
+            transition: .2s;
+        }
+        
+        li:hover {
+            color: deepskyblue;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #fafafa;
+            transition: .2s;
+        }
+        
+        a:hover {
+            color: deepskyblue;
+        }
+
+        #target {
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            display: block;
+            -webkit-transition: 1.5s;
+            transition: 1.5s;
+        }
+
+        .target_inner {
+            width: 40px;
+            height: 30px;
+            position: relative;
+        }
+
+        .target_inner_line {
+            display: block;
+            width: 40px;
+            height: 5px;
+            background: #fafafa;
+            -webkit-transition: 1.5s;
+            transition: 1.5s;
+            border-radius: 50px;
+            position: absolute;
+        }
+
+        .target_inner_1 {
+            top: 0;
+        }
+
+        .target_inner_2 {
+            top: 13px;
+        }
+
+        .target_inner_3 {
+            top: 26px;
+        }
+
+        .fadein {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+
+        .linea,
+        .lineb,
+        .linec {
+            background: #ffffff;
+        }
+
+        .linea {
+            -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+            top: 13px;
+        }
+
+        .lineb {
+            opacity: 0;
+        }
+
+        .linec {
+            -webkit-transform: rotate(-225deg);
+            transform: rotate(-225deg);
+            top: 13px;
+        }
+
+        /* main */
+        main {
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+        function hamburger() {
+            document.getElementById('line1').classList.toggle('linea');
+            document.getElementById('line2').classList.toggle('lineb');
+            document.getElementById('line3').classList.toggle('linec');
+            document.getElementById('target').classList.toggle('slidex');
+            document.getElementById('menu').classList.toggle('fadein');
+        }
+        document.getElementById('target').addEventListener('click', function() {
+            hamburger();
+        });
+        let list = document.getElementsByClassName('list');
+
+        for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click', function() {
+                hamburger();
+            });
+        }
+
+
+        let clock = () => {
+            let now = new Date();
+            let hrs = now.getHours();
+            let mins = now.getMinutes();
+            let secs = now.getSeconds();
+
+            let year = now.getFullYear();
+            let month = now.getMonth();
+            let day = now.getDate();
+            const week = now.getDay();
+            const weeks = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            const w = weeks[week];
+
+
+            let period = "AM";
+            if (hrs === 0) {
+                hrs = 12;
+            } else if (hrs >= 12) {
+                hrs = hrs - 12;
+                period = "PM";
+            }
+            hrs = hrs < 10 ? "0" + hrs : hrs;
+            mins = mins < 10 ? "0" + mins : mins;
+            secs = secs < 10 ? "0" + secs : secs;
+
+            let time = `${hrs}:${mins}:${secs} ${period}`;
+            document.getElementById('time').innerText = time;
+            
+            let date = `${year}-${month + 1}-${day} ${w}`;
+            document.getElementById('date').innerHTML = date;
+            
+            setTimeout(clock, 1000);
+        };
+
+        clock();
+
+    </script>
+</body>
+
+</html>

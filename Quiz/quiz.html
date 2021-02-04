@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abbreviation Quiz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <!--スタート画面-->
+        <div id="home">
+            <h1>略称クイズ</h1>
+            <div id="start">START</div>
+            <div id="hinichi"><span id="month"></span>月<span id="date"></span>日<span id="week"></span> 日直</div>
+            <div id="parenthesis">( )</div>
+        </div>
+        <div id="eracer">
+            <div id="belt"></div>
+        </div>
+        <div id="redchalk" class="chalk"></div>
+        <div id="whitechalk" class="chalk"></div>
+
+
+        <!--クイズ画面-->
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <div id="word"></div>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+            </div>
+            <div id="qImage"></div>
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="timebarBase"></div>
+                <div id="timebar"></div>
+            </div>
+            <div id="progressBar"></div>
+        </div>
+
+        <!--最終スコア画面-->
+        <div id="scoreContainer" style="display: none"></div>
+
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
